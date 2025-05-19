@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Name | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #000000;
+      --text: #ffff;
+      --subtext: #d6d5d5;
+      --accent: #b97af9;
+      --card-bg: #1111;
+      --border: #a8068a;
+    }
+
+    * {
+      box-sizing: border-box;
+      
+      margin: 0;
+      padding: 0;
+
+     }
+
+    body {
+      overflow-x: hidden;
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 157%;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--accent);
+    }
+
+    header {
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    nav a {
+      margin-left: 1.5rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .container {
+      max-width: 100vw;
+      margin: auto;
+      padding: 3rem;
+      
+    }
+
+    section {
+      margin-bottom: 4rem;
+    }
+
+      h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--text);
+      }
+     .proj{
+      padding: 0;
+      margin-right: -3rem;
+      margin-bottom: 3rem;
+      }
+     .projects{
+      display: flex;
+      width: 100%;
+      overflow-x: auto;
+      padding:0 ;
+      margin-right: -3rem;
+      }
+     .projects::after {
+      content: '';
+      flex: 0 0 2rem;
+      }
+    .project {
+      background: var(--card-bg);
+      width: 35vw;
+      border: 0.5px solid var(--border);
+      border-radius: 8rem;
+      padding: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      margin-bottom: 2rem;
+      padding-bottom: 4rem;
+      margin: 1rem;
+      box-sizing: border-box;
+      flex-shrink: 0; /* Prevent items from shrinking */
+ 
+  
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(228, 3, 194, 0.6);
+    }
+
+    .project img {
+      width: 100%;
+      border-top-left-radius: 8rem;
+      border-top-right-radius: 8rem;
+      margin-bottom: 0.8rem;
+      cursor: pointer;
+    }
+
+    .project h3 {
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    .project p {
+      color: var(--subtext);
+      font-size: 0.95rem;
+    }
+    .projects::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+    
+
+    #about p, #contact p {
+      max-width: 100%;
+      color: var(--subtext);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 1rem;
+      }
+    }
+  </style>
+  <style>
+
+    h1 {
+        font-size: 36px;
+        color: #ffff;
+    }
+
+    p {
+        font-size: 18px;
+        color: #d2d1d1;
+    }
+    .hero {
+      background-image: url('neonfinal.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100vw;
+      height: 107vh;
+      position: relative;
+      
+    }
+
+    .navbar {
+     
+     position: absolute;
+     top: 30px;
+     width: 100%;
+     text-align: center;
+     z-index: 10;
+    }
+
+    .navbar a {
+     color: #ccc;
+     margin: 0 20px;
+     text-decoration: none;
+     font-size: 1rem;
+     transition: color 0.3s ease;
+     }
+
+    .navbar a:hover {
+     color: white;
+    }
+    .mywork{
+      margin-top:8rem;
+      margin-bottom:7rem;
+      font-size: 8rem;
+      
+
+    }
+    .project-modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #1c1c1c;
+  padding: 2rem;
+  border-radius: 4px;
+  width: 95%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.screenshots img {
+  max-width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+}
+.modal-close-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem ;
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background-color: #ccc;
+  max-width: 100px; /* controls the line length */
+  margin: 0 10px;
+}
+
+
+
+.skills h2 {
+  font-size: 8rem;
+  margin-right: 5rem;
+}
+
+.skills-grid {
+  display: flex;
+  
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+
+.skill-card {
+  padding: 1rem 2rem;
+  border: 1px solid var(--border);
+  border-radius: 4rem;
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 3px 10px rgba(228, 3, 194, 0.6);
+}
+
+
+
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <nav class="navbar">
+      <a href="#projects">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+  <!-- <div class="container">
+    <div class="left-side">
+        <h1>Hi!</h1>
+        <h1>I'm Ritika Jadhav</h1>
+        <p>and this is my portfolio~</p>
+    </div>
+    <div class="right-side">
+    </div>
+ </div> -->''
+  
+  <main class="container">
+    <div class="proj">
+    <section id="projects">
+      <h2 class="mywork">My Work</h2>
+      <div class="projects">
+        <div class="project" onclick="openModal('modal1')">
+          <img src="seculinx1.png" alt="Project 1">
+          <h3>Project 1: Seculinx</h3>
+          <p>A futuristic yet cozy homepage designed for an AI-powered smart home startup. <br><br>
+            I used Blender to create custom 3D visuals that bring the brand's vision to life, and paired them with smooth micro-interactions to keep the experience engaging.<br>
+            The goal was to capture the feeling of effortlessness — letting users imagine a home that runs itself.</p>
+        </div>
+        <div class="project-modal modal" id="modal1">
+          <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal1')">×</span>
+          
+              <h2>Seculinx – Interactive Website for a Home Automation Startup</h2> </br>
+              <p><em>Internship Project | May–July 2024</em></p> </br>
+            <div class="screenshots">
+              <img src="sec.png" alt="Screenshot 1">
+            </div>
+            <p>
+              As part of my internship at a home automation startup, I designed and developed an introductory website for 
+              <strong>Seculinx</strong>.
+              <br><br>>  The company wanted a sleek, modern aesthetic with a dark edge to reflect the advanced nature of 
+              their smart home solutions. 
+              <br><br>>  I incorporated luminous design elements to mimic the behavior of light, aligning with their core 
+              feature of controlling home lighting.
+            </p></br>
+            <p>
+              >  To elevate user engagement, I created an interactive 3D model in Blender, which is featured on the homepage. <br><br>The final website 
+              delivers a visually immersive and intuitive experience that keeps users engaged while presenting the brand in a compelling, 
+              futuristic style.
+            </p>
+            <div class="modal-close-divider">
+            <hr class="line">
+            <span class="x">&times;</span>
+            <hr class="line">
+            </div>
+
+           
+          </div>
+        </div>
+        
+        <div class="project" onclick="openModal('modal2')">
+          <img src="ffcs preview.png" alt="Project 2">
+          <h3>Project 2: FFCS Combogen</h3>
+          <p>A colorful and fun tool designed to simplify the FFCS (Fully Flexible Credit System) process. <br><br>
+            While the interface is playful and vibrant, the focus stays on functionality and a smooth user experience — helping students breeze through schedule planning without the usual stress.
+          </p>
+        </div>
+      
+        <div class="project-modal modal" id="modal2">
+        <div class="modal-content">
+          <span class="close-btn" onclick="closeModal('modal2')">×</span>
+          <h2>FFCS ComboGen - website designed to simplify the FFCS process</h2>
+          <p><em>As part of CodeChef Club</em></p>
+          <div class="screenshots">
+          <img src="ffcs.png" alt="Screenshot 2">
+          </div>
+          <p>
+          FFCS ComboGen is a playful yet practical tool designed to simplify the process of generating class combinations for VIT's FFCS system.<br><br>>Built with a strong focus on user experience, the interface mimics the feel of building blocks—using vibrant, fun colors to make planning timetables feel less like a chore and more like a game.
+          </p></br>
+          <p>
+          > The design prioritizes clarity and flow: users can easily add subjects and teachers at the top, and instantly see a clean, visually organized timetable below. Every step is intuitive, reducing friction and making it accessible even for first-time users.<br><br> This project reflects my interest in combining functionality with thoughtful, user-centered design.
+          </p>
+          <div class="modal-close-divider">
+            <hr class="line">
+            <span class="x">&times;</span>
+            <hr class="line">
+            </div>
+          
+        </div>
+        </div>
+      
+        <div class="project" onclick="openModal('modal3')">
+            <img src="tldreel.png">
+            <h3>Project 3: TLDreel</h3>
+            <p>TLDR-eel is an educational video platform that condenses lengthy content into short, engaging reels for quick and easy learning.<br><br> Focused on clear user flows and accessibility. All illustrations and visuals were custom-made to enhance the learning experience.
+            </p>
+        </div>
+        <div class="project-modal modal" id="modal3">
+          <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal3')">×</span>
+          
+              <h2>TLDReel</h2>
+              <p><em>Designed and built in 48 hours during a hackathon</em></p>
+              <div class="screenshots">
+                <img src="tldr final.png" alt="Screenshot 3">
+              </div>
+              <p>
+                TLDReel is an AI-driven educational platform that converts long-form learning material into short, scrollable reels—ideal for revision and fast-paced content consumption.
+              </p></br>
+              <p>
+                Every design decision was made with clarity and inclusivity in mind. The interface is minimal, distraction-free, and accessible to users of all ages—from school students to adult learners. Despite the high-pressure 48-hour window, I ensured the experience felt intuitive, modern, and smooth across devices.
+              </p></br>
+              <p>
+                I also created all visual assets and clipart from scratch to maintain a consistent and original design language throughout the platform, giving it a unique identity that stands out in the ed-tech space.
+              </p>
+              <div class="modal-close-divider">
+            <hr class="line">
+            <span class="x">&times;</span>
+            <hr class="line">
+            </div>
+            
+            
+          </div>
+        </div>
+          <div class="project" onclick="openModal('modal4')">
+            <img src="eventplanner.png" alt="Project 4">
+            <h3>Case Study: Event planner app</h3>
+            <p>A colorful and fun tool designed to simplify the FFCS (Fully Flexible Credit System) process. <br><br>
+              While the interface is playful and vibrant, the focus stays on functionality and a smooth user experience — helping students breeze through schedule planning without the usual stress.
+            </p>
+          </div>
+          <div class="project-modal modal" id="modal4">
+            <div class="modal-content">
+              <span class="close-btn" onclick="closeModal('modal4')">×</span>
+              
+              <h2> UX Case Study: Local Event Ticketing Platform</h2>
+              <p><strong>Goal:</strong> Make discovering and booking local events easy, fast, and inclusive.</p></br>
+
+              <p>
+             Designed a community event ticketing platform with a focus on clear navigation, smooth payment flow,
+             and accessibility for all ages. Through journey mapping, user personas (including a student, a retiree,
+             and a sports fan), and competitor analysis, I identified pain points like overwhelming listings, unclear
+             pricing, and clunky checkout processes.
+              </p></br>
+
+            <p>
+            <strong>My focus:</strong> Inclusive design, simplified user flows, and a trust-building interface.<br></br>
+            <strong>Role:</strong> UX Research · Journey Mapping · Strategy</br>
+            </p></br>
+
+            <p>
+            <a href="https://docs.google.com/document/d/1MZT7I-IFNb7Jz9bBOERXbEAfTKz1nbxttqUVDFCsAoI/edit?tab=t.0" target="_blank">View Full Case Study (PDF)</a>
+            </p><br>
+            
+            <div class="screenshots">
+                <img src="event modal.png" alt="Screenshot 3">
+              </div>
+            <div class="modal-close-divider">
+            <hr class="line">
+            <span class="x">&times;</span>
+            <hr class="line">
+            </div> 
+            </div>
+          </div>
+        
+        </div>
+      </div>
+    </div>
+</section>
+</div>
+    <section id="about">
+      <h2 class="mywork">About Me</h2>
+      <p>
+        I'm a UI/UX designer who believes that design should adapt to the story it's telling. Whether it's minimalist, futuristic, or something more experimental, I tailor my style to fit the concept perfectly. I love crafting immersive and interactive experiences, often using tools like Blender and more to bring a creative edge to my work.
+      </p></br>
+      <p>
+        While I enjoy playing with color, layout, and creative elements, I also pay close attention to user experience. I believe good design is not just about aesthetics—it's about making things intuitive, accessible, and enjoyable for everyone. Whether I'm working under tight deadlines or experimenting with playful visuals, I always design with the user in mind.
+      </p><br><br><br>
+    </section>
+    <section class="skills" id="skills">
+
+  <div class="skills-grid">
+    <h2 class="skil">Skills</h2>
+    <div class="skill-card">Figma</div>
+    <div class="skill-card">Blender</div>
+    <div class="skill-card">HTML</div>
+    <div class="skill-card">CSS</div>
+  </div>
+</section><br>
+
+
+    <section id="contact">
+      <h2>Get In Touch</h2>
+      <p>Email: <a href="mailto:youremail@example.com">jadhavritika08@gmail.com</a></p>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Ritika Jadhav
+  </footer>
+  <script>
+    window.addEventListener('scroll', () => {
+      const image = document.querySelector('.hero');
+      const scrollY = window.scrollY;
+
+      const scale = 1 + Math.min(scrollY / 500, 0.15);
+      image.style.transform = `scale(${scale})`;
+    });
+  </script>
+  <script>
+    function openModal(id) {
+      document.getElementById(id).style.display = 'flex';
+    }
+  
+    function closeModal(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+  </script>
+  <script>
+  
+
+const container = document.querySelector('.projects');
+
+container.addEventListener('wheel', (e) => {
+  const anyModalOpen = Array.from(document.querySelectorAll('.modal'))
+    .some(modal => window.getComputedStyle(modal).display !== 'none');
+  if (anyModalOpen) return;
+
+  const rect = container.getBoundingClientRect();
+  const centerY = rect.top + rect.height / 2;
+
+  // Only scroll if the center of the section is visible in the viewport
+  const isCenteredInView = centerY >= 0 && centerY <= window.innerHeight;
+
+  if (!isCenteredInView) return;
+
+  const atStart = container.scrollLeft === 0;
+  const atEnd = container.scrollLeft + container.clientWidth >= container.scrollWidth - 1;
+
+  if (e.deltaY !== 0 && !(atStart && e.deltaY < 0) && !(atEnd && e.deltaY > 0)) {
+    e.preventDefault();
+    container.scrollLeft += e.deltaY;
+  }
+}, { passive: false });
+
+
+
+    
+  
+
+
+    
+
+
+  </script>
+  
+</body>
+</html>
