@@ -256,13 +256,13 @@
     @media (max-width: 768px) {
 
       /* Hero: 80vh so it dominates the screen.
-         background-size:cover already zooms/crops the image — intentional. */
+         background-size:cover already zooms/crops the image , intentional. */
       .hero {
         height: 80vh;
         background-position: center center;
       }
 
-      /* Navbar: floating frosted pill — feels native, not a text row */
+      /* Navbar: floating frosted pill , feels native, not a text row */
       .navbar {
         top: 20px;
         display: flex;
@@ -307,7 +307,7 @@
         margin-bottom: 0;
       }
 
-      /* Section heading: let it run big across 2 lines — editorial, deliberate */
+      /* Section heading: let it run big across 2 lines , editorial, deliberate */
       .mywork {
         font-size: clamp(3.2rem, 18vw, 6rem);
         margin-top: 3rem;
@@ -327,7 +327,7 @@
 
       .projects::after { display: none; }
 
-      /* Cards: keep the pill shape — it's the signature of the design.
+      /* Cards: keep the pill shape , it's the signature of the design.
          Clip description to 2 lines so the card is a teaser, not a wall of text. */
       .project {
         width: 100%;
@@ -361,7 +361,7 @@
         color: #aaa;
       }
 
-      /* "Tap to view" hint — subtle, lives below the clipped text */
+      /* "Tap to view" hint , subtle, lives below the clipped text */
       .project::after {
         content: 'tap to view →';
         display: block;
@@ -373,7 +373,7 @@
         text-transform: lowercase;
       }
 
-      /* Modal: slides up as a bottom sheet — native phone pattern */
+      /* Modal: slides up as a bottom sheet , native phone pattern */
       .project-modal {
         align-items: flex-end;     /* anchor to bottom */
       }
@@ -506,7 +506,7 @@
           <div class="project-modal modal" id="modal1">
             <div class="modal-content">
               <span class="close-btn" onclick="closeModal('modal1')">×</span>
-              <h2>Seculinx — Interactive Website for a Home Automation Startup</h2><br>
+              <h2>Seculinx , Interactive Website for a Home Automation Startup</h2><br>
               <p><em>Internship Project | May–July 2024</em></p><br>
               <div class="screenshots">
                 <img src="sec.png" class="desktop-img" alt="Seculinx screenshot">
@@ -534,14 +534,14 @@
           <div class="project-modal modal" id="modal2">
             <div class="modal-content">
               <span class="close-btn" onclick="closeModal('modal2')">×</span>
-              <h2>FFCS ComboGen — Simplifying the FFCS Process</h2>
+              <h2>FFCS ComboGen , Simplifying the FFCS Process</h2>
               <p><em>As part of CodeChef Club</em></p><br>
               <div class="screenshots">
                 <img src="ffcs.png" class="desktop-img" alt="FFCS ComboGen screenshot">
                 <img src="ffcs mobile.png" class="mobile-img" alt="FFCS ComboGen mobile screenshot">
               </div>
               <p>FFCS ComboGen is a playful yet practical tool designed to simplify generating class combinations for VIT's FFCS system.</p><br>
-              <p>> Built with a strong focus on user experience, the interface mimics the feel of building blocks using vibrant, fun colors to make planning timetables feel less like a chore.<br><br>> Users can easily add subjects and teachers at the top and instantly see a clean, visually organized timetable below — every step is intuitive.</p>
+              <p>> Built with a strong focus on user experience, the interface mimics the feel of building blocks using vibrant, fun colors to make planning timetables feel less like a chore.<br><br>> Users can easily add subjects and teachers at the top and instantly see a clean, visually organized timetable below , every step is intuitive.</p>
               <div class="screenshots">
                 
                 <img src="ffcs mobile2.png" class="mobile-img" alt="FFCS ComboGen mobile screenshot">
@@ -568,7 +568,7 @@
                 <img src="tldr mobile2.png" class="mobile-img" alt="TLDReel mobile screenshot">
               </div>
               <p>TLDReel is an AI-driven educational platform that converts long-form learning material into short, scrollable reels ideal for revision and fast-paced content consumption.</p><br>
-              <p>Every design decision was made with clarity and inclusivity in mind — minimal, distraction-free, and accessible to users of all ages. Despite the high-pressure 48-hour window, the experience feels intuitive, modern, and smooth across devices.</p><br>
+              <p>Every design decision was made with clarity and inclusivity in mind, minimal, distraction-free, and accessible to users of all ages. Despite the high-pressure 48-hour window, the experience feels intuitive, modern, and smooth across devices.</p><br>
               <p>I also created all visual assets from scratch to maintain a consistent and original design language throughout.</p>
               <div class="screenshots">
                 
@@ -646,7 +646,7 @@
     <section id="about">
       <h2 class="mywork">About Me</h2>
       <p>I'm a UI/UX designer who believes that design should adapt to the story it's telling. Whether it's minimalist, futuristic, or something more experimental, I tailor my style to fit the concept perfectly. I love crafting immersive and interactive experiences, often using tools like Blender to bring a creative edge to my work.</p><br>
-      <p>While I enjoy playing with color, layout, and creative elements, I also pay close attention to user experience. Good design is not just about aesthetics — it's about making things intuitive, accessible, and enjoyable for everyone.</p><br><br>
+      <p>While I enjoy playing with color, layout, and creative elements, I also pay close attention to user experience. Good design is not just about aesthetics, it's about making things intuitive, accessible, and enjoyable for everyone.</p><br><br>
     </section>
 
     <section class="skills" id="skills">
@@ -668,7 +668,7 @@
   <footer>© 2025 Ritika Jadhav</footer>
 
   <script>
-    /* Parallax zoom: desktop only — causes jank on mobile */
+    /* Parallax zoom: desktop only , causes jank on mobile */
     if (window.innerWidth > 768) {
       window.addEventListener('scroll', () => {
         const hero = document.querySelector('.hero');
